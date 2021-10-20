@@ -1,5 +1,6 @@
 const createSession = require('../helpers/createSession');
-const incrementCounter = require('../helpers/incrementCounter')
+const incrementCounter = require('../helpers/incrementCounter');
+const getCount = require('../helpers/getCount');
 const sessionModel = require('../models/sessionModel');
 const session = {
     create: (req,res) => {
@@ -10,6 +11,7 @@ const session = {
     },
     increment: (req,res) => {
         const {sessionId} = req.body;
+        if (!sessionId) res.status(401).send('Unauthorized');
         incrementCounter((sessionId), (err,success) => {
             if (err !==null | !success) console.log(`increment:incrementCounter: ${err}`);
             else {
@@ -23,6 +25,14 @@ const session = {
                 })
             }
 
+        })
+    },
+    count: (req,res) => {
+        const {sessionId} = req.body;
+        if (!sessionId) res.status(401).send('Unauthorized');
+        getCount((sessionId), (err,count) => {
+            if (err !== null | !count) console.log(`count:getCount: ${err}`);
+            else res.status(200).send({limitCounter:count})
         })
     }
 }
