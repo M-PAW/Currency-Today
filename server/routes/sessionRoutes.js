@@ -5,6 +5,7 @@ sessionRoutes.get('/', (req,res) => {
 })
 
 sessionRoutes.get('/create', session.create)
+sessionRoutes.get('/count', session.count)
 sessionRoutes.put('/increment', session.increment)
 
 module.exports = sessionRoutes;
