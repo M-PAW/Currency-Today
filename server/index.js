@@ -4,13 +4,32 @@ const cors = require('cors');
 const helmet = require('helmet');
 const morgan = require('morgan')
 const mongoose = require('mongoose');
-
+const codesModel = require('./models/codesModel');
+const axios = require('axios');
 // Connect DB
 mongoose.connect(process.env.DB_URI,{ 
     useNewUrlParser: true, 
     useUnifiedTopology: true},(err) => {
-    if (!err) return console.log('DB Connected Successfully');
-    console.log(err);
+        if (err) return console.log(`index:mongoose.connect: ${err}`);
+        else {
+            console.log('DB Connected Successfully');
+            // Check DB for currency-codes, get & insert if not found
+            codesModel.findOne({codesId:process.env.CODES_ID}, (err,codes) => {
+                if (err | !codes) {
+                    console.log('Supported_Codes Not Found... \nGetting Supported_Codes...');
+                    axios.get(`https://v6.exchangerate-api.com/v6/${process.env.API_KEY}/codes
+                    `)
+                    .then(codes => {
+                        const codesObject = [
+                            
+                        ]
+                    })
+                }
+                else {
+                    return console.log('Supported_Codes Ready');
+                }
+            })
+        }
 })
 
 // Set dynamic port for local or server

@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const schema = mongoose.Schema({
-    sessionId:String,
-    limitCounter:Number
+    codeId:Number,
+    supported_codes: Object([])
 });
-const model = mongoose.model('Session', schema);
+const model = mongoose.model('Code', schema);
 module.exports = model;
