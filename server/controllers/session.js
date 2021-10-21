@@ -16,8 +16,8 @@ const session = {
         }
     },
     increment: (req,res) => {
+        if (!req.body.sessionId | req.body.sessionId === undefined) return res.status(401).send('Unauthorized');
         const {sessionId} = req.body;
-        if (!sessionId) res.status(401).send('Unauthorized');
         incrementCounter((sessionId), (err,success) => {
             if (err !==null | !success) console.log(`increment:incrementCounter: ${err}`);
             else {
@@ -34,8 +34,8 @@ const session = {
         })
     },
     count: (req,res) => {
+        if (!req.body.sessionId | req.body.sessionId === undefined) return res.status(401).send('Unauthorized');
         const {sessionId} = req.body;
-        if (!sessionId) res.status(401).send('Unauthorized');
         getCount((sessionId), (err,count) => {
             if (err !== null | !count) console.log(`count:getCount: ${err}`);
             else res.status(200).send({limitCounter:count})

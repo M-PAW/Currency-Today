@@ -1,7 +1,6 @@
-const currency = require('express').Router();
+const currencyRoutes = require('express').Router();
+const currency = require('../controllers/currency');
 
-currency.get('/', (req,res) => {
-    res.send('Currency Online')
-})
+currencyRoutes.get('/',currency.defaultCurrency)
 
-module.exports = currency;
+module.exports = currencyRoutes;
