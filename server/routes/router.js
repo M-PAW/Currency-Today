@@ -1,9 +1,9 @@
 const router = require('express').Router();
 
 const sessionRoutes = require('./sessionRoutes');
-const currency = require('./currencyRoutes');
+const currencyRoutes = require('./currencyRoutes');
 
 router.use('/session', sessionRoutes);
-router.use('/currency', currency);
+router.use('/currency', currencyRoutes);
 
 module.exports = router;
