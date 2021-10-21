@@ -1,3 +1,4 @@
 module.exports = localData = {
-    supported_codes: []
+    supported_codes: [],
+    default_currency: {}
 };
