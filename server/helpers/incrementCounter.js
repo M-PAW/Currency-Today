@@ -1,8 +1,8 @@
 const sessionModel = require('../models/sessionModel');
 const incrementCounter = (sessionId,callback) => {
     sessionModel.findOne({sessionId}, (err,session) => {
-        let limitCounter = session.limitCounter;
         if (err | !session) console.log(`incrementCount(findOne): ${err}`);
+        let limitCounter = session.limitCounter;
         if (session.limitCounter >= process.env.API_LIMIT) {
             callback(null,false)
         }

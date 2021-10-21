@@ -15,24 +15,6 @@ const session = {
             })
         }
     },
-    increment: (req,res) => {
-        if (!req.body.sessionId | req.body.sessionId === undefined) return res.status(401).send('Unauthorized');
-        const {sessionId} = req.body;
-        incrementCounter((sessionId), (err,success) => {
-            if (err !==null | !success) console.log(`increment:incrementCounter: ${err}`);
-            else {
-                sessionModel.findOne({sessionId}, (err, session) => {
-                    if (err | !session) {
-                        console.log(`increment:findOne: ${err}`);
-                    }
-                    else {
-                        res.status(201).send({limitCounter: session.limitCounter})
-                    }
-                })
-            }
-
-        })
-    },
     count: (req,res) => {
         if (!req.body.sessionId | req.body.sessionId === undefined) return res.status(401).send('Unauthorized');
         const {sessionId} = req.body;
