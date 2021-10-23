@@ -1,10 +1,11 @@
 import React from 'react'
+import MobileContainer from '../containers/styled-components/MobileContainer'
 
 const Mobile = () => {
     return (
-        <div>
+        <MobileContainer>
             <h1>Mobile View</h1>
-        </div>
+        </MobileContainer>
     )
 }
 
