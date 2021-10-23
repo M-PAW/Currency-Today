@@ -1,10 +1,11 @@
 import React from 'react'
+import DesktopContainer from '../containers/styled-components/DesktopContainer'
 
 const Desktop = () => {
     return (
-        <div>
+        <DesktopContainer>
             <h1>Desktop View</h1>
-        </div>
+        </DesktopContainer>
     )
 }
 
