@@ -10,9 +10,9 @@ const connectDB = () => {
                 console.log('DB Connected Successfully');
                 // Check DB for currency-codes, get & insert if not found
                 checkSupportedCodes();
-                //checkDefaultCurrency();
+                checkDefaultCurrency();
                 // set refresh for default data, 24h
-                //setInterval(checkDefaultCurrency, 86400001)
+                setInterval(checkDefaultCurrency, 86400001)
             }
     })
 }
