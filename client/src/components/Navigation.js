@@ -24,14 +24,12 @@ const navChanger = (type,links) => {
                 <Nav className="me-auto">
                     {
                         links.map((link,idx) => {
-                            
                                 if (!idx) {
                                    return ( <Nav.Link as={Link} to={`/`}>{link}</Nav.Link> )
                                 }
                                 else {
                                     return ( <Nav.Link as={Link} to={`/${link}`}>{link}</Nav.Link> )
                                 }
-                            
                         })
                     }
                 </Nav>
