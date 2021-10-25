@@ -1,12 +1,23 @@
-import React from 'react'
+import React,{lazy} from 'react'
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import MobileContainer from '../containers/styled-components/MobileContainer'
 import Navigation from '../components/Navigation'
+import {House,Cash} from 'react-bootstrap-icons';
+import About from '../components/About';
+const Converter = lazy(() => import('../components/Converter'));
 
 const Mobile = () => {
+    console.log(House);
     return (
         <MobileContainer>
-            <Navigation type={'mobile'} links={['1','2','3']} />
-            <h1>Mobile View</h1>
+            <Router>
+                <Navigation type={'mobile-top'} text={'Currency-Today'} />
+                <Switch>
+                    <Route exact path='/' component={About} />
+                    <Route path='/converter' component={Converter} />
+                </Switch>
+                <Navigation type={'mobile-bottom'} links={['About','Converter']} icons={[House,Cash]} />
+            </Router>
         </MobileContainer>
     )
 }
