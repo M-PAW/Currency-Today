@@ -1,5 +1,6 @@
 import React, {lazy, Suspense} from 'react';
 import MediaQuery from 'react-responsive'
+
 const Desktop = lazy(() => import('../views/Desktop'));
 const Mobile = lazy(() => import('../views/Mobile'));
 

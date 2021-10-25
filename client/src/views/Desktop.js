@@ -9,10 +9,10 @@ const Desktop = () => {
     return (
         <DesktopContainer>
             <Router>
-                <Navigation type={'desktop'} links={['About','Converter']}/>
-                <h1>Desktop View</h1>
+                <Navigation type={'desktop'} links={['About','Converter']} text={"Currency-Today"}/>
                 <Switch>
-                    
+                    <Route exact path='/' component={About} />
+                    <Route path='/converter' component={Converter} />
                 </Switch>
             </Router>
         </DesktopContainer>
