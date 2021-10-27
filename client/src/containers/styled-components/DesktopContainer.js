@@ -11,7 +11,7 @@ const DesktopContainer = styled.div `
     right:0;
     bottom:0;
     margin: 0 4%;
-    padding-top: 4%;
+    padding: 10%;
     background-color:orange;
 `
 
