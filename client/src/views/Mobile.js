@@ -7,7 +7,6 @@ import About from '../components/About';
 const Converter = lazy(() => import('../components/Converter'));
 
 const Mobile = () => {
-    console.log(House);
     return (
         <MobileContainer>
             <Router>

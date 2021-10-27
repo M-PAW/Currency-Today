@@ -71,15 +71,12 @@ const MobileTop = (text) => {
 
 //Mobile-Bottom
 const MobileBottom = (links,icons) => {
-    console.log(icons);
     return (
         <Navbar bg="light" variant="light" fixed="bottom" >
         <Container className="justify-content-center">
             <Nav className='w-50 justify-content-evenly'>
                 {
                     links.map((link,idx) => {
-                            const iconComponent = icons[idx];
-                            console.log(iconComponent);
                             if (!idx) {
                             return ( <Nav.Link as={RouterLink} to={`/`} eventKey={0}>
                                 <House size={35}/>

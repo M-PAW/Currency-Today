@@ -11,7 +11,7 @@ const MobileContainer = styled.div `
     right:0;
     bottom:0;
     margin: 0 2%;
-    padding-top: 4%;
+    padding-top: 16%;
     background-color:blue;
 `
 
