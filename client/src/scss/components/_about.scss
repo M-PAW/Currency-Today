@@ -1,0 +1,89 @@
+.about-main {
+    position: absolute;
+    top: 0px;
+    bottom:0px;
+    left:0px;
+    right:0px;
+    padding-top: 110px;
+    box-sizing: border-box;
+    height:100%;
+    h1 {
+        margin-bottom: 6vh;
+    }
+
+    h4,section,hr {
+        margin-bottom: 2.5vh;
+    }
+
+    h4 {
+        font-weight: bolder;
+    }
+
+    h5 {
+        flex:100%;
+        margin-top: 6vh;
+        background-color: white;
+        color: black;
+        max-width: 24%;
+        margin-left:38%;
+    }
+
+    h5,p {
+        text-align: center;
+    }
+
+    hr {
+        width:100%;
+        margin: 15px 0;
+    }
+
+    .reader {
+        text-align: left;
+        text-indent: 1rem;
+    }
+
+    .col-buffer {
+        text-align: left;
+        padding-left:28%;
+    }
+
+    .highlight-title {
+        font-size: 1.2rem;
+        font-weight: bold;
+    }
+    
+    .about-me {
+        display: flex;
+        justify-content: center;
+        align-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        padding-bottom: 100px;
+        header {
+            flex:100%;
+        }
+        div {
+            margin-right: 2vw;
+            img {
+                border-radius: 15px 50px;
+                padding:0;
+                border:4px solid black;
+            }
+
+        }
+        quote {
+            max-width: 36vw;
+        }
+    }
+
+
+    .sub-header {
+        width: 86%;
+        border-bottom: 1px solid white;
+        margin-bottom: 5vh;
+        margin-left: 7%;
+        padding:0;
+        height:1.5rem
+    }
+
+}

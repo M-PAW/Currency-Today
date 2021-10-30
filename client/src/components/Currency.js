@@ -1,4 +1,4 @@
-import React,{useEffect,useState} from 'react'
+import React,{useEffect,useState} from 'react';
 
 const Currency = ({currency,baseTotal,code,currencyHandler,idx}) => {
     const [currValue, setCurrValue] = useState([
@@ -10,7 +10,7 @@ const Currency = ({currency,baseTotal,code,currencyHandler,idx}) => {
         let update = currValue;
         update[2] = parseFloat(currency.base[2] * currency.table[currValue[0]]).toFixed(2)
         setCurrValue(update)
-        setTimeout(() => {setIsConverting(false)}, 500)
+        setTimeout(() => {setIsConverting(false)}, 575)
     }
     // watch value, reevaluate currency
     useEffect(() => {
@@ -24,7 +24,7 @@ const Currency = ({currency,baseTotal,code,currencyHandler,idx}) => {
 
     // onChange handler
     const changeHandler = (e) => {
-        // e.preventDefault();
+        e.preventDefault();
         const selection = e.target.value;
         const newCurr = currency.supportedCodes.find(code => {
             if(code[0]===selection)return code
@@ -47,7 +47,9 @@ const Currency = ({currency,baseTotal,code,currencyHandler,idx}) => {
             </select>
             <div style={{display:"flex", justifyContent: "flex-start", alignItems:"flex-start",alignContent:"center", width:"25%", marginLeft:"10%"}}>
                 {
-                    isConverting?<p>Converting</p>:<p style={{fontSize:"1.4rem"}}>{`${currValue[2]}`}</p>
+                    isConverting?<>
+                    <p>Converting</p>
+                    </>:<p style={{fontSize:"1.4rem"}}>{`${currValue[2]}`}</p>
 
                 }
             </div>

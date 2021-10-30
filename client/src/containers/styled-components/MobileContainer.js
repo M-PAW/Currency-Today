@@ -10,9 +10,8 @@ const MobileContainer = styled.div `
     left:0;
     right:0;
     bottom:0;
-    margin: 0 2%;
-    padding-top: 16%;
-    background-color:blue;
+    margin: 0 auto;
+    width:88%;
 `
 
 export default MobileContainer

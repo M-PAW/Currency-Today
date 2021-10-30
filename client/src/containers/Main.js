@@ -8,7 +8,7 @@ function Main() {
   const mobile = 990;
   const desktop = 991
   return (
-    <div>
+    <div className='main-container'>
       <Suspense fallback="Still Loading">
         <MediaQuery minWidth={desktop}>
           <Desktop />
