@@ -1,4 +1,5 @@
 import React,{useEffect,useState} from 'react';
+import {Row, Col} from 'react-bootstrap';
 
 const Currency = ({currency,baseTotal,code,currencyHandler,idx}) => {
     const [currValue, setCurrValue] = useState([
@@ -10,7 +11,7 @@ const Currency = ({currency,baseTotal,code,currencyHandler,idx}) => {
         let update = currValue;
         update[2] = parseFloat(currency.base[2] * currency.table[currValue[0]]).toFixed(2)
         setCurrValue(update)
-        setTimeout(() => {setIsConverting(false)}, 575)
+        setTimeout(() => {setIsConverting(false)}, 450)
     }
     // watch value, reevaluate currency
     useEffect(() => {
@@ -35,26 +36,29 @@ const Currency = ({currency,baseTotal,code,currencyHandler,idx}) => {
     
 
     return (
-        <div style={{display:"flex",justifyContent:"flex-start", margin:"8px 0 8px 0", height:"2.2rem"}}>
-            <select style={{width:'65%', height:"2rem"}} value='baseCurrency' onChange={changeHandler}>
-            <option value={currValue[0]}>{currValue[1]}</option> 
-            <hr />
-                {
-                    currency.supportedCodes.map((code,idx) => {
-                        return <option value={code[0]}>{code[1]}</option> 
-                    })
-                }
-            </select>
-            <div style={{display:"flex", justifyContent: "flex-start", alignItems:"flex-start",alignContent:"center", width:"25%", marginLeft:"10%"}}>
-                {
-                    isConverting?<>
-                    <p>Converting</p>
-                    </>:<p style={{fontSize:"1.4rem"}}>{`${currValue[2]}`}</p>
+        <Row>
+            <Col lg={8} xs={4}>
+                <select className='currency-select' value='baseCurrency' onChange={changeHandler}>
+                    <option value={currValue[0]}>{currValue[1]}</option> 
+                    <hr />
+                        {
+                            currency.supportedCodes.map((code,idx) => {
+                                return <option value={code[0]}>{code[1]}</option> 
+                            })
+                        }
+                </select>
+            </Col>
+            <Col lg={4} xs={8}>
+                <div className='currency-total'>
+                    {
+                        isConverting?<>
+                        <p>Converting...</p>
+                        </>:<p>{`${currValue[2]}`}</p>
 
-                }
-            </div>
-        </div>
-
+                    }
+                </div>
+            </Col>
+        </Row>
     )
 }
 
