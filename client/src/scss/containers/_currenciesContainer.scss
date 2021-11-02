@@ -1,0 +1,16 @@
+.currencies-container {
+    min-width: 480px;
+    padding-left: 16px;
+
+    h4 {
+        margin-bottom: 15px;
+    }
+
+    @media screen and (max-width: $mobile) {
+        max-width: 240px;
+        padding-left: 0;
+        h4 {
+            text-align: center;
+        }
+    }
+}

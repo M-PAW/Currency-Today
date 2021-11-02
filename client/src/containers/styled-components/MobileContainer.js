@@ -12,6 +12,7 @@ const MobileContainer = styled.div `
     bottom:0;
     margin: 0 auto;
     width:88%;
+    padding-top: 0;
 `
 
 export default MobileContainer

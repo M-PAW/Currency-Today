@@ -2,7 +2,7 @@ import React,{useState,useEffect} from 'react';
 import BaseCurrency from './BaseCurrency';
 import CurrenciesContainer from '../containers/CurrenciesContainer';
 
-const Converter = () => {
+const Converter = ({type}) => {
     const [currency,setCurrency] = useState({
         base: ["AUD", "AUD - Australian Dollar",1],
         table : {
@@ -10,17 +10,23 @@ const Converter = () => {
             "AED": 2.7501,
             "AFN": 59.9041,
             "ALL": 78.2255,
+            "JPY": 85.70,
+            "CNY": 4.82
             },
         selectedCurrencies: [
             ["AED","AED - The United Arab Emirates Dirham"],
             ["AFN","AFN - The afghani"],
-            ["ALL","ALL - Albania Lek"]
+            ["ALL","ALL - Albania Lek"],
+            ["JPY","JPY - Japanese Yen"],
+            ["CNY", "CNY - Chinese Yuan"]
         ],
         supportedCodes: [
             ["AUD","AUD - Australian Dollar"],
             ["AED","AED - The United Arab Emirates Dirham"],
             ["AFN","AFN - The afghani"],
-            ["ALL","ALL - Albania Lek"]
+            ["ALL","ALL - Albania Lek"],
+            ["JPY","JPY - Japanese Yen"],
+            ["CNY", "CNY - Chinese Yuan"]
         ],
     })
 
@@ -51,10 +57,9 @@ const Converter = () => {
     }
 
     return (
-        <div style={{width:"90%", display:"flex",flexDirection:"column", justifyContent:"center"}}>
+        <div className='converter-container'>
             <BaseCurrency currency={currency} baseHandler={baseHandler} updateAmount={updateAmount}/>
             <hr />
-            <h1>Converter Component</h1>
             <CurrenciesContainer currency={currency} currencyHandler={currencyHandler} />
         </div>
     )

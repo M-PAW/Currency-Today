@@ -13,19 +13,22 @@ const BaseCurrency = ({currency,baseHandler,updateAmount}) => {
     }
 
     return (
-        <form style={{width:'90%',margin:"0 auto", display:"flex", justifyContent:"flex-start"}} onSubmit={handleSubmit}>
-            <select style={{width:'65%',marginRight:"10px"}} value='baseCurrency' onChange={baseHandler}>
-            <option value={base[0]}>{base[1]}</option> 
-            <hr />
-                    {
-                        currency.supportedCodes.map((code,idx) => {
-                            return <option value={code[0]}>{code[1]}</option> 
-                        })
-                    }
-            </select>
-            <input type="number" name="sum" style={{width:'18%',height:'2rem'}} placeholder={base[2]}/>
-            <input type="submit" value="Convert"/>
-        </form>
+        <div className='baseCurrency-container'>
+            <h3>Base Currency</h3>
+            <form onSubmit={handleSubmit}>
+                <select value='baseCurrency' onChange={baseHandler}>
+                <option value={base[0]}>{base[1]}</option> 
+                <hr />
+                        {
+                            currency.supportedCodes.map((code,idx) => {
+                                return <option value={code[0]}>{code[1]}</option> 
+                            })
+                        }
+                </select>
+                <input type="number" name="sum" placeholder={base[2]}/>
+                <input className='btn btn-secondary' type="submit" value="Convert"/>
+            </form>
+        </div>
     )
 }
 

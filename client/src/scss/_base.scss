@@ -1,4 +1,8 @@
 $mobile: 990px;
 @import '_reset';
 @import 'containers/_main';
+@import 'containers/currenciesContainer';
 @import 'components/about';
+@import 'components/converter';
+@import 'components/baseCurrency';
+@import 'components/currency';

@@ -13,7 +13,9 @@ const Mobile = () => {
                 <Navigation type={'mobile-top'} text={'Currency-Today'} />
                 <Switch>
                     <Route exact path='/' component={About} />
-                    <Route path='/converter' component={Converter} />
+                    <Route path='/converter'>
+                        <Converter type={'mobile'} />
+                    </Route>
                 </Switch>
                 <Navigation type={'mobile-bottom'} links={['About','Converter']} icons={[House,Cash]} />
             </Router>

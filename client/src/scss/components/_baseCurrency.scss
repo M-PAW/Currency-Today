@@ -1,0 +1,55 @@
+.baseCurrency-container {
+    min-width: 460px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    h3 {
+        width:460px;
+    }
+    form {
+        display: flex;
+        flex-wrap: wrap;
+        select {
+            max-width: 240px;
+            height: 2.1rem;
+        }
+        input {
+            max-width: 70px;
+            height: 2.1rem;
+            margin: 0 10px;
+        }
+        .btn {
+            min-width: 200px;
+            height: 2.2rem;
+            padding-top: -10px;
+            margin-bottom: 5px;
+        }
+    }
+    @media screen and (max-width: $mobile) {
+        max-width: 240px;
+        h3 {
+            max-width: 240px;
+            text-align: center;
+        }
+        form {
+            max-width: 240px;
+            input {
+                margin: 0 15px;
+                min-width:35%;
+            }
+            select {
+                max-width: 25%;
+                margin-left: 15%;
+                margin-right: 5%;
+            }
+            .btn {
+                min-width: 70%;
+                // margin: 20px auto 0 auto;
+                height: 3.4rem;
+                margin: 20px auto;
+            }
+        }
+    }
+}
