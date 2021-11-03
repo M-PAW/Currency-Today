@@ -73,7 +73,7 @@ const About = () => {
                     <div>
                         <img src="https://avatars.githubusercontent.com/u/40832145?v=4" alt="Michael Walter"/>
                     </div>
-                    <quote className='reader'>"My name is Mike, and I'm a software engineer based in Southern California. I'm ambitious and tenacious. Giving up isn't in my nature. If there is a way, I will find it."</quote>
+                    <p className='reader'>"My name is Mike, and I'm a software engineer based in Southern California. I'm ambitious and tenacious. Giving up isn't in my nature. If there is a way, I will find it."</p>
                 </article>
             </section>
         </main>

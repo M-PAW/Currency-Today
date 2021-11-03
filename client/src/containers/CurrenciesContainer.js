@@ -12,7 +12,7 @@ const CurrenciesContainer = ({currency, currencyHandler}) => {
                     {
                         currency.selectedCurrencies.map((code,idx) => {
                             return (
-                                <Currency currency={currency} baseTotal={currency.base[2]} code={code} currencyHandler={currencyHandler} idx={idx}/>
+                                <Currency currency={currency} baseTotal={currency.base[2]} code={code} currencyHandler={currencyHandler} idx={idx} key={idx}/>
                             )
                         })
                     }

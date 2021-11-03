@@ -1,10 +1,13 @@
 import React,{useState,useEffect} from 'react'
+import {connect} from 'react-redux';
 
-const BaseCurrency = ({currency,baseHandler,updateAmount}) => {
-    const [base,setBase] = useState(currency.base)
+const BaseCurrency = (props,{currency,baseHandler,updateAmount}) => {
+    const [base,setBase] = useState([
+        "AUD","Australian Dollar",1
+    ])
     useEffect(() => {
-        setBase(currency.base)
-    },[currency.base])
+        console.log(base);
+    },[base])
 
     const handleSubmit = (e) => {
         e.preventDefault()
@@ -12,16 +15,26 @@ const BaseCurrency = ({currency,baseHandler,updateAmount}) => {
         updateAmount(value)
     }
 
+    const changeHandler = (e) => {
+        const symbol = e.target.value;
+        let currency = props.supportedCodes.filter(code => {
+            if (code[0]===symbol) {
+                return code[1]
+            }
+        })
+        let update = [currency[0][0],currency[0][1],base[2]]
+        setBase(update)
+    }
+
     return (
         <div className='baseCurrency-container'>
             <h3>Base Currency</h3>
             <form onSubmit={handleSubmit}>
-                <select value='baseCurrency' onChange={baseHandler}>
+                <select value='baseCurrency' onChange={changeHandler}>
                 <option value={base[0]}>{base[1]}</option> 
-                <hr />
                         {
-                            currency.supportedCodes.map((code,idx) => {
-                                return <option value={code[0]}>{code[1]}</option> 
+                            props.supportedCodes.map((code,idx) => {
+                                return <option value={code[0]} key={idx}>{code[1]}</option> 
                             })
                         }
                 </select>
@@ -32,4 +45,16 @@ const BaseCurrency = ({currency,baseHandler,updateAmount}) => {
     )
 }
 
-export default BaseCurrency
+const mapStateToProps = (state) => {
+    return {
+        supportedCodes:state.session.supportedCodes
+    }
+}
+
+const mapDispatchToProps = dispatch => {
+    return {
+
+    }
+}
+
+export default connect(mapStateToProps,mapDispatchToProps)(BaseCurrency);

@@ -1,4 +1,4 @@
-import React,{useState,useEffect} from 'react';
+import React,{useState} from 'react';
 import BaseCurrency from './BaseCurrency';
 import CurrenciesContainer from '../containers/CurrenciesContainer';
 

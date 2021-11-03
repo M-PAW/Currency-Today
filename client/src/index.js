@@ -4,11 +4,13 @@ import '../src/scss/_base.scss';
 import Main from './containers/Main';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import reportWebVitals from './reportWebVitals';
+import {Provider} from 'react-redux';
+import {store} from './redux/store';
 
 ReactDOM.render(
-  <React.StrictMode>
+  <Provider store={store}>
     <Main />
-  </React.StrictMode>,
+  </Provider>,
   document.getElementById('root')
 );
 

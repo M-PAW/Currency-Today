@@ -1,12 +1,18 @@
-import React, {lazy, Suspense} from 'react';
+import React, {lazy, Suspense, useEffect} from 'react';
+import {connect} from 'react-redux';
 import MediaQuery from 'react-responsive'
-
+import { createSession } from '../redux/Session/session.actions';
 const Desktop = lazy(() => import('../views/Desktop'));
 const Mobile = lazy(() => import('../views/Mobile'));
 
-function Main() {
+const Main = (props) => {
   const mobile = 990;
   const desktop = 991
+
+  useEffect(() => {
+    props.createSession()
+  },[])
+
   return (
     <div className='main-container'>
       <Suspense fallback="Still Loading">
@@ -21,4 +27,15 @@ function Main() {
   );
 }
 
-export default Main;
+const mapStateToProps = (state) => {
+  console.log(state.session.sessionId)
+  return {state};
+};
+
+const mapDispatchToProps = dispatch => {
+  return {
+    createSession: () => dispatch(createSession())
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Main);

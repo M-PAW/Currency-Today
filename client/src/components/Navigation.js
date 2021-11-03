@@ -78,12 +78,12 @@ const MobileBottom = (links,icons) => {
                 {
                     links.map((link,idx) => {
                             if (!idx) {
-                            return ( <Nav.Link as={RouterLink} to={`/`} eventKey={0}>
+                            return ( <Nav.Link as={RouterLink} to={`/`} eventKey={0} key={idx}>
                                 <House size={35}/>
                             </Nav.Link> )
                             }
                             else {
-                                return ( <Nav.Link as={RouterLink} to={`/${link}`} eventKey={idx}>
+                                return ( <Nav.Link as={RouterLink} to={`/${link}`} eventKey={idx} key={idx}>
                                     <CashCoin size={35} />
                                 </Nav.Link> )
                             }

@@ -1,7 +1,7 @@
 const testRoutes = require('express').Router();
 const localData = require('../localData/localData');
 
-testRoutes.get('/default', (req,res) => {
+testRoutes.post('/default', (req,res) => {
     // Requires a sessionId
     console.log(req.body.sessionId);
     res.status(200).send(localData.default_currency)
@@ -11,7 +11,7 @@ testRoutes.get('/count', (req,res) => {
     console.log('Online Count Test');
 })
 
-testRoutes.get('/new', (req,res) => {
+testRoutes.post('/new', (req,res) => {
     // Requires a sessionId
     console.log(req.body.sessionId);
     res.status(200).send({
@@ -30,10 +30,11 @@ testRoutes.get('/new', (req,res) => {
     })
 })
 
-testRoutes.get('/create', (req,res) => {
+testRoutes.post('/create', (req,res) => {
+    console.log(req.body.appCode);
     res.status(200).send({
         sessionId: 12345,
-        limitCounter: 1,
+        limitCounter: 0,
         supportedCodes: localData.supported_codes
     })
 })
