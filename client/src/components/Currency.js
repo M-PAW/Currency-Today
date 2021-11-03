@@ -43,7 +43,7 @@ const Currency = ({currency,baseTotal,code,currencyHandler,idx}) => {
                     <hr />
                         {
                             currency.supportedCodes.map((code,idx) => {
-                                return <option value={code[0]}>{code[1]}</option> 
+                                return <option value={code[0]} key={idx}>{code[1]}</option> 
                             })
                         }
                 </select>
