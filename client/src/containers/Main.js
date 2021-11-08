@@ -3,6 +3,7 @@ import {connect} from 'react-redux';
 import MediaQuery from 'react-responsive'
 import { getDefaultCurrency } from '../redux/Currency/currency.actions';
 import { createSession } from '../redux/Session/session.actions';
+import Loader from '../components/Loader';
 const Desktop = lazy(() => import('../views/Desktop'));
 const Mobile = lazy(() => import('../views/Mobile'));
 
@@ -17,7 +18,7 @@ const Main = (props) => {
 
   return (
     <div className='main-container'>
-      <Suspense fallback="Still Loading">
+      <Suspense fallback={<Loader />}>
         <MediaQuery minWidth={desktop}>
           <Desktop />
         </MediaQuery>
