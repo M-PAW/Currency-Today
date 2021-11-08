@@ -51,7 +51,7 @@ const Currency = (props) => {
 
     return (
         <Row>
-            <Col lg={8} xs={4}>
+            <Col lg={8} xs={6}>
                 <select className='currency-select' value='baseCurrency' onChange={changeHandler}>
                     <option value={currValue[0]}>{currValue[1]}</option> 
                     <hr />
@@ -62,7 +62,7 @@ const Currency = (props) => {
                         }
                 </select>
             </Col>
-            <Col lg={4} xs={8}>
+            <Col lg={4} xs={6}>
                 <div className='currency-total'>
                     {
                         isConverting?<>

@@ -21,13 +21,13 @@ Row {
 
 @media screen and (max-width: $mobile) {
     .currency-select {
-        max-width: 42%;
-        margin-left: 80%;
+        max-width: 27%;
+        margin-left: 68%;
     }
     .currency-total {
         width: 100%;
         right:0;
-        margin-left: 5%;
-        
+        margin-left: 0;
+        padding-left: 0;
     }
 }
