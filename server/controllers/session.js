@@ -5,10 +5,12 @@ const sessionModel = require('../models/sessionModel');
 
 const session = {
     create: (req,res) => {
-        if (req.body.appCode === undefined | req.body.appCode !== process.env.APP_CODE) {
-            res.status(401).send('Unauthorized');
+        console.log(req.body.appCode);
+        if ( toString(req.body.appCode) !== toString(process.env.APP_CODE)) {
+            res.status(401).send('Unauthorized APP CODE');
         }
         else {
+            console.log("Else Hit");
             createSession((err,session) => {
                 if (err) res.status(400).send(err)
                 else res.status(201).send(session)

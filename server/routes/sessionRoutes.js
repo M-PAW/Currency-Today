@@ -4,7 +4,7 @@ sessionRoutes.get('/', (req,res) => {
     res.send('Session Online')
 })
 
-sessionRoutes.get('/create',session.create)
+sessionRoutes.post('/create',session.create)
 sessionRoutes.get('/count', session.count)
 
 module.exports = sessionRoutes;

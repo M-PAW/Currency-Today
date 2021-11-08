@@ -19,6 +19,6 @@ const createSession = (callback) => {
         }
     })
 
-    callback(sessionObject);
+    callback(null,sessionObject);
 }
 module.exports = createSession;

@@ -7,9 +7,15 @@ const checkSupportedCodes = () => {
             console.log('Supported_Codes Not Found... \nGetting Supported_Codes...');
             axios.get(`https://v6.exchangerate-api.com/v6/${process.env.API_KEY}/codes`)
             .then(codes => {
+                const formattedCodes = codes.data.supported_codes.map(code => {
+                    return [
+                        code[0],
+                        code.join(' - ')
+                    ]
+                })
                 const codesObject = {
                     codeId:process.env.CODES_ID,
-                    supported_codes: codes.data.supported_codes
+                    supported_codes: formattedCodes
                 }
                 codesModel.create([codesObject], (err,success) => {
                     if (err | !success) {

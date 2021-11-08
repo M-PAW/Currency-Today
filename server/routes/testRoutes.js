@@ -3,7 +3,7 @@ const localData = require('../localData/localData');
 
 testRoutes.post('/default', (req,res) => {
     // Requires a sessionId
-    console.log(req.body.sessionId);
+    console.log(`sessionId: ${req.body.sessionId}`);
     res.status(200).send(localData.default_currency)
 })
 
@@ -31,7 +31,7 @@ testRoutes.post('/new', (req,res) => {
 })
 
 testRoutes.post('/create', (req,res) => {
-    console.log(req.body.appCode);
+    console.log(`appCode: ${req.body.appCode}`);
     res.status(200).send({
         sessionId: 12345,
         limitCounter: 0,

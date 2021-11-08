@@ -1,29 +1,35 @@
 import React,{useState,useEffect} from 'react'
 import {connect} from 'react-redux';
+import { updateBaseAmount, changeBaseCurrency} from '../redux/Currency/currency.actions';
 
-const BaseCurrency = (props,{currency,baseHandler,updateAmount}) => {
+const BaseCurrency = (props) => {
     const [base,setBase] = useState([
-        "AUD","Australian Dollar",1
+        props.base[0],
+        props.base[1],
+        props.base[2]
     ])
     useEffect(() => {
-        console.log(base);
+        //console.log(base);
     },[base])
 
     const handleSubmit = (e) => {
         e.preventDefault()
         const value = e.target.sum.value;
-        updateAmount(value)
+        console.log(value);
+        props.updateBaseAMount(value)
     }
 
     const changeHandler = (e) => {
         const symbol = e.target.value;
         let currency = props.supportedCodes.filter(code => {
             if (code[0]===symbol) {
-                return code[1]
+                return code
             }
         })
         let update = [currency[0][0],currency[0][1],base[2]]
+        let status = props.currenciesContainer[symbol]===undefined?true:false;
         setBase(update)
+        props.changeBaseCurrency(currency,status)
     }
 
     return (
@@ -47,13 +53,16 @@ const BaseCurrency = (props,{currency,baseHandler,updateAmount}) => {
 
 const mapStateToProps = (state) => {
     return {
-        supportedCodes:state.session.supportedCodes
+        supportedCodes:state.session.supportedCodes,
+        base:state.currency.base,
+        currenciesContainer:state.currency.currenciesContainer
     }
 }
 
 const mapDispatchToProps = dispatch => {
     return {
-
+        updateBaseAMount:(value) => dispatch(updateBaseAmount(value)),
+        changeBaseCurrency:(currency,status) => dispatch(changeBaseCurrency(currency,status))
     }
 }
 

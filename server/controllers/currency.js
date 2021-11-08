@@ -5,19 +5,17 @@ const getNewCurrency = require('../helpers/getNewCurrency');
 const sessionModel = require('../models/sessionModel');
 const currency = {
     defaultCurrency: (req,res) => {
-        if (!req.body.sessionId | req.body.sessionId === undefined) {
+        if (!req.body.sessionId ) {
             return res.status(401).send('Unauthorized');
         }
         const {sessionId} = req.body;
-        getDefaultCurrency((sessionId), (err,data) => {
-            res.status(200).send({defaultCurrency: data})
+        getDefaultCurrency((sessionId), (err,defaultCurrency) => {
+            res.status(200).send(defaultCurrency)
         })
     },
     newCurrency: (req,res) => {
-        if (!req.body.sessionId 
-            | req.body.sessionId === undefined
-            | !req.body.currency
-            | req.body.currency === undefined) {
+        if (!req.body.sessionId
+            | !req.body.currency) {
                 return res.status(401).send('Unauthorized');
             }
             const {sessionId, currency} = req.body;
