@@ -1,8 +1,5 @@
 const sessionRoutes = require('express').Router();
 const session = require('../controllers/session');
-sessionRoutes.get('/', (req,res) => {
-    res.send('Session Online')
-})
 
 sessionRoutes.post('/create',session.create)
 sessionRoutes.get('/count', session.count)
