@@ -6,7 +6,7 @@ const getDefaultCurrency = (sessionId, callback) => {
             console.log(`getDefaultCurrency:findOne: ${err}`);
         }
         else {
-            callback(null, localData.default_currency)
+            callback(null,localData.default_currency)
         }
     })
 }

@@ -2,18 +2,16 @@ import axios from 'axios';
 import {
     REQUEST_CREATE_SESSION_SUCCESS,
     REQUEST_CREATE_SESSION_FAILURE,
-    // REQUEST_INITIALIZATION_DATA_SUCCESS,
-    // REQUEST_INITIALIZATION_DATA_FAILURE,
-    // REQUEST_NEW_CURRENCY_SUCCESS,
-    // REQUEST_NEW_CURRENCY_FAILURE,
-    // IS_UPDATING,
     APP_CODE
 } from './session.types';
 
+// Pull session for check undefines or create - Implement check later, maybe
+// const sessionId = window.localStorage.getItem("CT_SESSION")
+
+
 export const createSession = () => (dispatch) => {
-    console.log(process.env.APP_CODE);
     axios
-    .post('http://localhost:5500/test/create',{
+    .post('http://localhost:5500/session/create',{
         appCode: APP_CODE
     })
     .then(data => {

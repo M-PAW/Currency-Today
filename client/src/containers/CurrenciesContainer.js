@@ -1,18 +1,19 @@
-import React from 'react'
+import React from 'react';
+import {connect} from 'react-redux';
 import {Container, Col, Row} from 'react-bootstrap';
 import Currency from '../components/Currency'
 
-const CurrenciesContainer = ({currency, currencyHandler}) => {
-    
+const CurrenciesContainer = (props) => {
+
     return (
         <div className='currencies-container'>
             <Container fluid>
                 <Col>
                     <Row><h4>Currencies:</h4></Row>
                     {
-                        currency.selectedCurrencies.map((code,idx) => {
+                        props.currenciesDefault.map((code,idx) => {
                             return (
-                                <Currency currency={currency} baseTotal={currency.base[2]} code={code} currencyHandler={currencyHandler} idx={idx} key={idx}/>
+                                <Currency code={code} idx={idx} key={idx}/>
                             )
                         })
                     }
@@ -22,4 +23,15 @@ const CurrenciesContainer = ({currency, currencyHandler}) => {
     )
 }
 
-export default CurrenciesContainer
+const mapStateToProps = (state) => {
+    return {
+        currenciesDefault: state.currency.currenciesDefault
+    }
+}
+
+const mapDispatchToProps = dispatch => {
+    return {
+    }
+}
+
+export default connect(mapStateToProps,mapDispatchToProps)(CurrenciesContainer)

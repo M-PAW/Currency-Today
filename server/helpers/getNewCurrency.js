@@ -1,6 +1,7 @@
 const axios = require('axios');
 const getNewCurrency = (currency, callback) => {
-    axios.get(`https://v6.exchangerate-api.com/v6/${process.env.API_KEY}/latest/${currency}`)
+    console.log(`GETNEW: ${currency}: ${typeof(currency)}`);
+    axios.get(`https://v6.exchangerate-api.com/v6/${process.env.API_KEY}/latest/${currency[0]}`)
     .then(response => {
         callback(null,{
             base_code: response.data.base_code,

@@ -1,6 +1,7 @@
 import React, {lazy, Suspense, useEffect} from 'react';
 import {connect} from 'react-redux';
 import MediaQuery from 'react-responsive'
+import { getDefaultCurrency } from '../redux/Currency/currency.actions';
 import { createSession } from '../redux/Session/session.actions';
 const Desktop = lazy(() => import('../views/Desktop'));
 const Mobile = lazy(() => import('../views/Mobile'));
@@ -8,9 +9,10 @@ const Mobile = lazy(() => import('../views/Mobile'));
 const Main = (props) => {
   const mobile = 990;
   const desktop = 991
-
   useEffect(() => {
     props.createSession()
+    setTimeout(props.getDefaultCurrency()
+    ,500)
   },[])
 
   return (
@@ -28,13 +30,13 @@ const Main = (props) => {
 }
 
 const mapStateToProps = (state) => {
-  console.log(state.session.sessionId)
   return {state};
 };
 
 const mapDispatchToProps = dispatch => {
   return {
-    createSession: () => dispatch(createSession())
+    createSession: () => dispatch(createSession()),
+    getDefaultCurrency: () => dispatch(getDefaultCurrency())
   }
 }
 
