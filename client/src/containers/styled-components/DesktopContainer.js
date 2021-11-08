@@ -1,6 +1,4 @@
 import styled from 'styled-components';
-import desktopImage from '../../assets/currency-desktop.jpg';
-
 
 const DesktopContainer = styled.div `
     display:flex;
