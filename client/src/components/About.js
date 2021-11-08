@@ -13,7 +13,7 @@ const About = () => {
                 </header>
                 <article>
                 <p className='reader'>Over many long months, I've continued to learn and grow as a developer. While at the same time, I encountered countless companies that told me I wasn't good enough and tossed my application aside. So many in-fact that I faced severe imposter syndrome.</p>
-                <p className='reader'>After some time, I reflected on the situation and came to one conclusion: <span>"No one can define me or stop me from pursuing my passion."</span> And so, I created Currency-Today as a testament to my growing skills and passion for development.</p>
+                <p className='reader'>For some time, I reflected on the situation. In the end, I decided to take on my imposter syndrome directly and crush it while at the same time proving to myself what I'm capable of doing.</p>
                 </article>
             </section>
             <hr />

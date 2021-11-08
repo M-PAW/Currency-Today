@@ -16,7 +16,6 @@ export const getDefaultCurrency = () => dispatch => {
         sessionId:sessionId
     })
     .then(data => {
-        console.log(`getDefaultCurrenct: ${data.data["conversion_rates"]}`);
         dispatch({
             type:REQUEST_INITIAL_SUCCESS, 
             payload:{

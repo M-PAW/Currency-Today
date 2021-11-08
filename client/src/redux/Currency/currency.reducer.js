@@ -21,7 +21,6 @@ const initialStateCurrency = {
 export const currency = (state=initialStateCurrency,action={}) => {
     switch(action.type) {
         case REQUEST_INITIAL_SUCCESS:
-            console.log(`REQ_INIT: ${action.payload.conversionRates}`);
             return Object.assign({},state,{
                 base:["USD","USD - United States Dollar",1],currenciesContainer: {
                     [`${action.payload.baseCode}`]:action.payload.conversionRates

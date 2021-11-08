@@ -12,7 +12,6 @@ export const session = (state=initialStateSession, action={})  => {
     switch(action.type) {
         case REQUEST_CREATE_SESSION_SUCCESS:
             window.localStorage.setItem("CT_SESSION",action.payload.sessionId)
-            console.log(action.payload.sessionId);
             return Object.assign({},state,{
                 count:action.payload.limitCounter,supportedCodes:action.payload.supportedCodes})
         case REQUEST_CREATE_SESSION_FAILURE:
